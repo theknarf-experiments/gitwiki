@@ -1,0 +1,20 @@
+{
+  "name": "gitwiki",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "no-telemetry": "next telemetry disable",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "devDependencies": {
+    "next": "^9.5.5",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  },
+  "dependencies": {
+    "@mdx-js/runtime": "^1.6.18"
+  }
+}
