@@ -1,8 +1,20 @@
 import { useState } from 'react';
+import { request } from 'graphql-request'
 import useSWR from 'swr'
 
+const fetcher = query => request('/api/graphql', query)
+
 const History = () => {
-	const { data, error } = useSWR('/api/history');
+	const { data, error } = useSWR(
+		`
+		{
+			history {
+				hash
+				author
+				message
+			}
+		}
+		`, fetcher);
 
 	if(error) return <div>Failed to load</div>;
 	if(!data) return <div>Loading...</div>;
