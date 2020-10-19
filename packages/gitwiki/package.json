@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "@mdx-js/runtime": "^1.6.18",
+    "express-graphql": "^0.11.0",
+    "graphql": "^15.3.0",
     "swr": "^0.3.6"
   }
 }
