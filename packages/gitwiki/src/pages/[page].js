@@ -1,16 +1,14 @@
 import MDX from '@mdx-js/runtime'
+import History from '../components/history';
 
 const Home = ({ mdx }) => <>
 	<h1> Git Wiki </h1>
-	<div>
-		Sidemenu
-	</div>
 	<section>
 		<a href="#"> Edit </a>	
-		<a href="#"> History </a>	
 		<article>
 		<MDX>{mdx}</MDX>
 		</article>
+		<History />
 	</section>
 </>;
 
