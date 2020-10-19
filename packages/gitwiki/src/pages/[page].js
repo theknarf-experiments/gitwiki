@@ -25,13 +25,22 @@ export async function getStaticPaths() {
 
 export const getStaticProps = async (context) => {
 	const read = require('util').promisify(require('fs').readFile);
+	const fs = require('fs');
 	const path = require('path');
 	const wikiDir = path.resolve(process.cwd(), '../wiki/');
 
 	let filename = context.params.page;
 	if(filename == "") filename = "index";
+	const fullpath = path.join(wikiDir, filename + '.mdx');
 
-	const mdx = await read(path.join(wikiDir, filename + '.mdx'), 'utf8');
+	if(!fs.existsSync(fullpath)) {
+		return { props: {
+			mdx: `# File not found
+Couldn' find ${filename}`
+		} };
+	}
+
+	const mdx = await read(fullpath, 'utf8');
 	return { props: {
 		mdx
 	} };
