@@ -1,10 +1,18 @@
+import React from 'react';
 import { useState } from 'react';
 import { request } from 'graphql-request'
 import useSWR from 'swr'
 
-const fetcher = query => request('/api/graphql', query)
+const fetcher = (query: any) =>
+	request('/api/graphql', query)
 
-const History = () => {
+interface HistoryObject {
+	hash: String;
+	author: String;
+	message: String;
+}
+
+const History : React.FC = () => {
 	const { data, error } = useSWR(
 		`
 		{
@@ -20,7 +28,7 @@ const History = () => {
 	if(!data) return <div>Loading...</div>;
 	
 	return <div>{
-		(data.history||[]).map(({ hash, author, message }) => (
+		(data.history||[]).map(({ hash, author, message } : HistoryObject) => (
 			<div>
 				<span>{hash}</span>
 				<b>{author}</b>
@@ -30,7 +38,7 @@ const History = () => {
 	}</div>;
 }
 
-const LoadableHistory = () => {
+const LoadableHistory : React.FC = () => {
 	const [showHistoy, setShowHistory] = useState(false);
 	const onClick = () => {
 		setShowHistory(true);

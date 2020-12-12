@@ -1,7 +1,13 @@
-import MDX from '@mdx-js/runtime'
+import React from 'react';
+import { GetStaticProps, GetStaticPaths } from 'next'
+import MDX from '@mdx-js/runtime';
 import History from '../components/history';
 
-const Home = ({ mdx }) => <>
+interface HomeProps {
+	mdx: String;
+}
+
+const Home : React.FC<HomeProps> = ({ mdx }) => <>
 	<h1> Git Wiki </h1>
 	<section>
 		<a href="#"> Edit </a>	
@@ -12,7 +18,7 @@ const Home = ({ mdx }) => <>
 	</section>
 </>;
 
-export async function getStaticPaths() {
+export const getStaticPaths : GetStaticPaths = async () => {
 	return {
 		paths: [
 			{ params: { page: 'index' } },
@@ -21,13 +27,13 @@ export async function getStaticPaths() {
 	};
 }
 
-export const getStaticProps = async (context) => {
+export const getStaticProps : GetStaticProps = async (context) => {
 	const read = require('util').promisify(require('fs').readFile);
 	const fs = require('fs');
 	const path = require('path');
 	const wikiDir = path.resolve(process.cwd(), '../wiki/');
 
-	let filename = context.params.page;
+	let filename = context!.params!.page;
 	if(filename == "") filename = "index";
 	const fullpath = path.join(wikiDir, filename + '.mdx');
 
