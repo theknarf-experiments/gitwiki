@@ -2,6 +2,7 @@ import React from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next'
 import MDX from '@mdx-js/runtime';
 import History from '../components/history';
+import ArticleSection from '../components/article-section';
 
 interface HomeProps {
 	mdx: String;
@@ -11,9 +12,9 @@ const Home : React.FC<HomeProps> = ({ mdx }) => <>
 	<h1> Git Wiki </h1>
 	<section>
 		<a href="#"> Edit </a>	
-		<article>
-		<MDX>{mdx}</MDX>
-		</article>
+		<ArticleSection>
+			<MDX>{mdx}</MDX>
+		</ArticleSection>
 		<History />
 	</section>
 </>;
