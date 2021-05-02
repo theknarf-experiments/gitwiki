@@ -27,15 +27,22 @@ const History : React.FC = () => {
 	if(error) return <div>Failed to load</div>;
 	if(!data) return <div>Loading...</div>;
 	
-	return <div>{
-		(data.history||[]).map(({ hash, author, message } : HistoryObject) => (
-			<div>
-				<span>{hash}</span>
-				<b>{author}</b>
-				<span>{message}</span>
-			</div>
-		))
-	}</div>;
+	return <table>
+		<tr>
+			<th>Git hash</th>
+			<th>Author</th>
+			<th>Comitt message</th>
+		</tr>
+		{
+			(data.history||[]).map(({ hash, author, message } : HistoryObject) => (
+				<tr>
+					<td>{hash}</td>
+					<td>{author}</td>
+					<td>{message}</td>
+				</tr>
+			))
+		}
+	</table>;
 }
 
 const LoadableHistory : React.FC = () => {
