@@ -1,3 +1,5 @@
+const { VanillaExtractPlugin } = require('@vanilla-extract/webpack-plugin');
+
 module.exports = {
 	'stories': [
     '../src/**/*.stories.mdx',
@@ -7,5 +9,11 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
 		'@storybook/addon-postcss',
-  ]
+  ],
+	webpackFinal: async (config, { configType }) => {
+
+		config.plugins.push(new VanillaExtractPlugin());
+
+		return config;
+	}
 };

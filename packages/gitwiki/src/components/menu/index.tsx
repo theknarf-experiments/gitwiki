@@ -1,4 +1,5 @@
 import React from 'react';
+import { className, memuItemClassName, detailsClassName, summaryClassName } from './menu.css';
 
 interface MenuItemProps {
 	title: string;
@@ -27,20 +28,24 @@ export const MenuItem : React.FC<MenuItemProps> = ({
 
 	if( typeof children !== 'undefined' ) {
 		return (
-			<details>
-				<summary>{linkContent}</summary>
-				<div>
-				{ children }
-				</div>
-			</details>
+			<div className={memuItemClassName}>
+				<details className={detailsClassName}>
+					<summary className={summaryClassName}>{linkContent}</summary>
+					<div>
+					{ children }
+					</div>
+				</details>
+			</div>
 		);
 	} else {
-		return ( <div>{linkContent}</div> );
+		return (
+			<div className={memuItemClassName}>{linkContent}</div>
+		);
 	}
 };
 
 const Menu : React.FC = ({ children }) => (
-	<div>
+	<div className={className}>
 	{ children }
 	</div>
 );
