@@ -7,8 +7,8 @@ export default {
 
 export const Default= ({ ...args }) => (
 	<Menu {...args}>
-		<MenuItem title="test" />
-		<MenuItem title="test2" />
+		<MenuItem title="test" icon="emojione-v1:rocket" />
+		<MenuItem title="test2" icon="noto:balloon" />
 		<MenuItem title="test3" link="http://google.com" />
 		<MenuItem title="test4" link="http://google.com" />
 		<MenuItem title="test5">

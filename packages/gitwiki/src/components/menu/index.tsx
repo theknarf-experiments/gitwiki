@@ -1,5 +1,6 @@
 import React from 'react';
 import { className, memuItemClassName, detailsClassName, summaryClassName } from './menu.css';
+import { Icon } from '@iconify/react-with-api';
 
 interface MenuItemProps {
 	title: string;
@@ -13,9 +14,11 @@ export const MenuItem : React.FC<MenuItemProps> = ({
 	icon,
 	children
 }) => {
-	// TODO: implement icon handeling
 	const content = icon ? (
-		title
+		<>
+			<Icon icon={icon} />
+			<span>title</span>
+		</>
 	) : (
 		title
 	);
