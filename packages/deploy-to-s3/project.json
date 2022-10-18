@@ -1,0 +1,20 @@
+{
+  "root": "tools/executors/deploy-to-s3",
+  "sourceRoot": "tools/executors/deploy-to-s3",
+  "projectType": "library",
+  "generators": {},
+  "targets": {
+    "deploy-to-s3": {
+      "executor": "@dnb/deploy-to-s3:deploy-to-s3",
+      "options": {
+        "bucketId": "Bucket",
+				"path": "images/",
+				"artifactPath": ".",
+        "verbose": true,
+        "endpoint": "http://localhost:10001"
+      }
+    }
+  },
+  "tags": []
+}
+

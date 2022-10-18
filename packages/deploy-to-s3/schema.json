@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "cli": "nx",
+  "properties": {
+    "bucketId": {
+      "type": "string",
+      "description": "S3 Bucket Id"
+    },
+    "path": {
+      "type": "string",
+      "description": "Path in S3 where to upload the artifact"
+    },
+    "artifactPath": {
+      "type": "string",
+      "description": "Where to find the built artifact to upload"
+    }
+  }
+}

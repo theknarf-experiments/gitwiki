@@ -1,0 +1,17 @@
+{
+  "name": "@dnb/deploy-to-s3",
+  "executors": "./executor.json",
+  "scripts": {
+    "test": "jest",
+    "dummy-server": "s3rver -d tmp -p 10001 --configure-bucket Bucket ./website.xml"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "3.160.0",
+    "aws-sdk": "2.1205.0"
+  },
+  "devDependencies": {
+    "aws-sdk-mock": "5.7.0",
+    "jest": "29.0.2",
+    "s3rver": "3.7.1"
+  }
+}
